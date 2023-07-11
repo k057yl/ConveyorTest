@@ -366,6 +366,8 @@
 "Assets/Spripts/Character/CharacterModel.cs"
 "Assets/Spripts/Character/CharacterView.cs"
 "Assets/Spripts/Constants/Constants.cs"
+"Assets/Spripts/Conveyor/Conveyor.cs"
+"Assets/Spripts/GameController/GameController.cs"
 "Assets/Spripts/InputSystem/InputController.cs"
 "Assets/Spripts/InputSystem/NewInput.cs"
 "Assets/TutorialInfo/Scripts/Readme.cs"

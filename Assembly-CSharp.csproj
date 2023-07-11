@@ -41,24 +41,29 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
-     <Compile Include="Assets\Spripts\InputSystem\NewInput.cs" />
-     <Compile Include="Assets\Spripts\InputSystem\InputController.cs" />
+     <Compile Include="Assets\Spripts\Constants\Constants.cs" />
      <Compile Include="Assets\Spripts\Character\CharacterConfig.cs" />
+     <Compile Include="Assets\Spripts\Conveyor\Conveyor.cs" />
+     <Compile Include="Assets\Spripts\Character\Character.cs" />
+     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+     <Compile Include="Assets\Spripts\GameController\GameController.cs" />
      <Compile Include="Assets\Spripts\Character\CharacterModel.cs" />
      <Compile Include="Assets\Spripts\Character\CharacterView.cs" />
-     <Compile Include="Assets\Spripts\Constants\Constants.cs" />
-     <Compile Include="Assets\Spripts\Character\Character.cs" />
+     <Compile Include="Assets\Spripts\InputSystem\NewInput.cs" />
+     <Compile Include="Assets\Spripts\InputSystem\InputController.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Spripts\Constants" />
      <Folder Include="Assets\Settings" />
      <Folder Include="Assets\Animations" />
+     <Folder Include="Assets\Configs" />
      <Folder Include="Assets\Spripts" />
      <Folder Include="Assets\Prefabs\Texturies" />
      <Folder Include="Assets\Prefabs" />
+     <Folder Include="Assets\Spripts\GameController" />
      <Folder Include="Assets\TutorialInfo\Scripts" />
      <Folder Include="Assets\TutorialInfo\Icons" />
      <Folder Include="Assets\TutorialInfo" />
+     <Folder Include="Assets\Spripts\Conveyor" />
      <Folder Include="Assets\Spripts\Character" />
      <Folder Include="Assets\Scenes" />
      <Folder Include="Assets\Spripts\InputSystem" />
