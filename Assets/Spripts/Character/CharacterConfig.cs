@@ -4,5 +4,4 @@ using UnityEngine;
 public class CharacterConfig : ScriptableObject
 {
     public float Speed;
-    public float Sensivity;
 }
