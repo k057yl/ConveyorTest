@@ -17,6 +17,11 @@ public class InputController
     {
         return _newInput.Gameplay.Movement.ReadValue<Vector3>();
     }
+    
+    public bool GetMouseLeft()
+    {
+        return _newInput.Gameplay.MouseClickLeftButton.triggered;
+    }
     /*
     public float GetMouseDeltaInputX()
     {
@@ -33,10 +38,7 @@ public class InputController
         return _newInput.Gameplay.MouseClickMiddleButton.ReadValue<float>();
     }
     
-    public bool GetMouseLeft()
-    {
-        return _newInput.Gameplay.MouseClickLeftButton.triggered;
-    }
+    
     
     public bool IsJumpTriggered()
     {

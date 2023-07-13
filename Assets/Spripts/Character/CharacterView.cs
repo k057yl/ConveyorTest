@@ -9,4 +9,14 @@ public class CharacterView : MonoBehaviour
     {
         _anim.SetFloat(Constants.WALK, direction.magnitude);
     }
+
+    public void PlayTakeItemAnimation()
+    {
+        _anim.SetTrigger(Constants.TAKE);
+    }
+    
+    public void PlayWinAnimation()
+    {
+        _anim.SetTrigger(Constants.WIN);
+    }
 }

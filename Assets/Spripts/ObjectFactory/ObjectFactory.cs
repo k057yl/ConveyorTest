@@ -8,7 +8,7 @@ public class ObjectFactory : MonoBehaviour
     [SerializeField] private GameObject _conveyorPrefab;
     [SerializeField] private GameObject[] _fruits;
     [SerializeField] private Transform _spawnPoint;
-    [SerializeField] private Text _taskText;//
+    [SerializeField] private Text _taskText;
 
     private Character _character;
     private Conveyor _conveyor;
@@ -47,7 +47,10 @@ public class ObjectFactory : MonoBehaviour
     {
         Task task = _taskGenerator.GenerateTask();
 
-        string taskDescription = string.Format("Собери {0} {1}", task.TargetQuantity, task.FruitName);
+        string taskDescription = string.Format("Collect {0} {1}", task.TargetQuantity, task.FruitName);
         _taskText.text = taskDescription;
+        
+        _character.CharacterModel.FruitTarget = task.TargetQuantity;
+        _character.CharacterModel.CurrentName = task.FruitName;
     }
 }

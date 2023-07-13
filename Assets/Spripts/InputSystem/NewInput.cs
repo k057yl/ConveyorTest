@@ -35,6 +35,15 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MouseClickLeftButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""6d5397c4-261d-452e-a96b-28b16cf3452f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -92,6 +101,17 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fcd2d7aa-fb91-4321-a33d-8f396fb9ebbe"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseClickLeftButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -101,6 +121,7 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Movement = m_Gameplay.FindAction("Movement", throwIfNotFound: true);
+        m_Gameplay_MouseClickLeftButton = m_Gameplay.FindAction("MouseClickLeftButton", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -163,11 +184,13 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Gameplay;
     private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
     private readonly InputAction m_Gameplay_Movement;
+    private readonly InputAction m_Gameplay_MouseClickLeftButton;
     public struct GameplayActions
     {
         private @NewInput m_Wrapper;
         public GameplayActions(@NewInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Gameplay_Movement;
+        public InputAction @MouseClickLeftButton => m_Wrapper.m_Gameplay_MouseClickLeftButton;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -180,6 +203,9 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
+            @MouseClickLeftButton.started += instance.OnMouseClickLeftButton;
+            @MouseClickLeftButton.performed += instance.OnMouseClickLeftButton;
+            @MouseClickLeftButton.canceled += instance.OnMouseClickLeftButton;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -187,6 +213,9 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
+            @MouseClickLeftButton.started -= instance.OnMouseClickLeftButton;
+            @MouseClickLeftButton.performed -= instance.OnMouseClickLeftButton;
+            @MouseClickLeftButton.canceled -= instance.OnMouseClickLeftButton;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -207,5 +236,6 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
     public interface IGameplayActions
     {
         void OnMovement(InputAction.CallbackContext context);
+        void OnMouseClickLeftButton(InputAction.CallbackContext context);
     }
 }

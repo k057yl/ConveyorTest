@@ -8,4 +8,11 @@ public class Constants
     public const int TWENTY = 20;
     
     public const string WALK = "Walk";
+    public const string TAKE = "Take";
+    public const string WIN = "Dance";
+    /*
+    public const string APPLE = "Apple";
+    public const string LEMON = "Lemon";
+    public const string STRAWBERRY = "Strawberry";
+    */
 }
