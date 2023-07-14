@@ -44,6 +44,15 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MouseClickRightButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""7cb0e04f-4cc3-4128-a6a1-80febb9d134f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -112,6 +121,17 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
                     ""action"": ""MouseClickLeftButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""272b5a84-e671-45b6-b7b7-d0b94d21c563"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseClickRightButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -122,6 +142,7 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Movement = m_Gameplay.FindAction("Movement", throwIfNotFound: true);
         m_Gameplay_MouseClickLeftButton = m_Gameplay.FindAction("MouseClickLeftButton", throwIfNotFound: true);
+        m_Gameplay_MouseClickRightButton = m_Gameplay.FindAction("MouseClickRightButton", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -185,12 +206,14 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
     private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
     private readonly InputAction m_Gameplay_Movement;
     private readonly InputAction m_Gameplay_MouseClickLeftButton;
+    private readonly InputAction m_Gameplay_MouseClickRightButton;
     public struct GameplayActions
     {
         private @NewInput m_Wrapper;
         public GameplayActions(@NewInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Gameplay_Movement;
         public InputAction @MouseClickLeftButton => m_Wrapper.m_Gameplay_MouseClickLeftButton;
+        public InputAction @MouseClickRightButton => m_Wrapper.m_Gameplay_MouseClickRightButton;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -206,6 +229,9 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
             @MouseClickLeftButton.started += instance.OnMouseClickLeftButton;
             @MouseClickLeftButton.performed += instance.OnMouseClickLeftButton;
             @MouseClickLeftButton.canceled += instance.OnMouseClickLeftButton;
+            @MouseClickRightButton.started += instance.OnMouseClickRightButton;
+            @MouseClickRightButton.performed += instance.OnMouseClickRightButton;
+            @MouseClickRightButton.canceled += instance.OnMouseClickRightButton;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -216,6 +242,9 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
             @MouseClickLeftButton.started -= instance.OnMouseClickLeftButton;
             @MouseClickLeftButton.performed -= instance.OnMouseClickLeftButton;
             @MouseClickLeftButton.canceled -= instance.OnMouseClickLeftButton;
+            @MouseClickRightButton.started -= instance.OnMouseClickRightButton;
+            @MouseClickRightButton.performed -= instance.OnMouseClickRightButton;
+            @MouseClickRightButton.canceled -= instance.OnMouseClickRightButton;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -237,5 +266,6 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnMouseClickLeftButton(InputAction.CallbackContext context);
+        void OnMouseClickRightButton(InputAction.CallbackContext context);
     }
 }

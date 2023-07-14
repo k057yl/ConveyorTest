@@ -22,6 +22,11 @@ public class InputController
     {
         return _newInput.Gameplay.MouseClickLeftButton.triggered;
     }
+    
+    public bool GetMouseRight()
+    {
+        return _newInput.Gameplay.MouseClickRightButton.triggered;
+    }
     /*
     public float GetMouseDeltaInputX()
     {

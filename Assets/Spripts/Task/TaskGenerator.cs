@@ -13,8 +13,8 @@ public class TaskGenerator
     {
         int randomIndex = Random.Range(Constants.ZERO, _fruits.Length);
         GameObject randomFruitPrefab = _fruits[randomIndex];
-
-        string fruitName = randomFruitPrefab.name;
+        
+        string fruitName = randomFruitPrefab.GetComponent<AbsFruit>().Name;
         int targetQuantity = Random.Range(Constants.ONE, Constants.SIX);
 
         return new Task(fruitName, targetQuantity);
