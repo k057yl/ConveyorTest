@@ -9,22 +9,24 @@ public class Character : MonoBehaviour
     [SerializeField] private GameObject _textPrefab;
     [SerializeField] private Basket _basket;
     [SerializeField] private Rig _rig;
+    [SerializeField] private Transform _targetObject;
+    
 
     private CharacterView _characterView;
-    public CharacterView CharacterView => _characterView;
     private CharacterModel _characterModel;
     public CharacterModel CharacterModel => _characterModel;
     private InputController _inputController;
     private UIBarController _uiBarController;
     private ObjectFactory _objectFactory;
     
-    private bool _isRig = false;
     
-
+    private bool _isRig = false;
+    private float _grabRadius = Constants.ONE_AND_TWO_HUNDREDTHS;
 
     private void Awake()
     {
         InitializeComponents();
+        
     }
 
     public void InitializeUIBar(UIBarController uiBarController)
@@ -61,37 +63,46 @@ public class Character : MonoBehaviour
     {
         if (_inputController.GetMouseLeft())
         {
-            Grab();
+            TryGrab();
         }
     }
-    
-    private void Grab()
+ 
+    private void TryGrab()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hit) && hit.collider.CompareTag(_characterModel.CurrentName))
         {
-            GameObject item = hit.collider.gameObject;
-
-            bool addedToBasket = _basket.AddToSlot(item);
-            if (!addedToBasket)
+            float distanceToPlayer = Vector3.Distance(transform.position, hit.transform.position);
+            if (distanceToPlayer <= _grabRadius)
             {
-                return;
-            }
-            
-            Rigidbody itemRigidbody = item.GetComponent<Rigidbody>();
-            
-            itemRigidbody.isKinematic = true;
-            
-            _characterModel.CollectFruit(Constants.ONE);
-            CollectText(hit.point);
-
-            if (!_isRig)
-            {
-                StartCoroutine(PlayRigAnimation());
+                Grab(hit.collider.gameObject);
             }
         }
     }
+    
+    private void Grab(GameObject item)
+    {
+        _targetObject.position = item.transform.position;
 
+        bool addedToBasket = _basket.AddToSlot(item);
+        if (!addedToBasket)
+        {
+            return;
+        }
+
+        Rigidbody itemRigidbody = item.GetComponent<Rigidbody>();
+
+        itemRigidbody.isKinematic = true;
+
+        _characterModel.CollectFruit(Constants.ONE);
+        CollectText(item.transform.position);
+
+        if (!_isRig)
+        {
+            StartCoroutine(PlayRigAnimation());
+        }
+    }
+    
     private IEnumerator PlayRigAnimation()
     {
         float elapsedTime = Constants.ZERO;
@@ -124,7 +135,7 @@ public class Character : MonoBehaviour
 
     private void CollectText(Vector3 spawnPosition)
     {
-        var text = Instantiate(_textPrefab, spawnPosition, Quaternion.identity);
+        var text = Instantiate(_textPrefab, spawnPosition, new Quaternion(Constants.ZERO, Constants.ONE_HUNDRED_AND_EIGHTY,Constants.ZERO,Constants.ZERO));
         _uiBarController.UpdateScore(CharacterModel.CurrentFruit);
         StartCoroutine(MoveTextUpAndDestroy(text, Constants.TWO));
     }

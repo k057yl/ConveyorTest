@@ -496,10 +496,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterConfig: {fileID: 11400000, guid: 5033b1a07d5fd2f4d96dab68ac54a99b, type: 2}
-  _textPrefab: {fileID: 6214808189718510159, guid: e6740d0c7814e5f4b953e71cd640f93f,
+  _textPrefab: {fileID: 1264622964398545776, guid: 28a74d7f519f89a4cba8aa8ddf747540,
     type: 3}
-  _rig: {fileID: 1577322719720256479}
   _basket: {fileID: 936804743340976770}
+  _rig: {fileID: 1577322719720256479}
+  _targetObject: {fileID: 6175537806947386575}
+  _grabRadius: 2
 --- !u!114 &7268212034035684931
 MonoBehaviour:
   m_ObjectHideFlags: 0

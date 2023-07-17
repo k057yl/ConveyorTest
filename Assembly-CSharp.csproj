@@ -84,10 +84,12 @@
      <Compile Include="Assets\Spripts\Character\CharacterView.cs" />
      <Compile Include="Assets\Spripts\InputSystem\NewInput.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
+     <Compile Include="Assets\Spripts\DestroyedWall\Destroy.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
      <Compile Include="Assets\Spripts\InputSystem\InputController.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
+     <Compile Include="Assets\Spripts\Bascket\Basket.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
@@ -95,8 +97,6 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
      <Compile Include="Assets\Spripts\FX\DestroySphere.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
-     <Compile Include="Assets\Spripts\DestroyedWall\Destroy.cs" />
-     <Compile Include="Assets\Spripts\Bascket\Basket.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Spripts\Constants" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
