@@ -3,7 +3,7 @@ using UnityEngine.Animations.Rigging;
 
 public class AnimationRig : MonoBehaviour
 {
-    public Rig Rig;
+    public Rig _rig;
 
     private int _idAttack;
     private void Update()
@@ -15,14 +15,14 @@ public class AnimationRig : MonoBehaviour
         
         if(_idAttack == 1)
         {
-            Rig.weight = Mathf.MoveTowards(Rig.weight, Constants.ONE, Constants.TREE * Time.deltaTime);
-            if (Rig.weight == 1) _idAttack = 0;
+            _rig.weight = Mathf.MoveTowards(_rig.weight, Constants.ONE, Constants.TREE * Time.deltaTime);
+            if (_rig.weight == 1) _idAttack = 0;
         }
         
         if(_idAttack == 2)
         {
-            Rig.weight = Mathf.MoveTowards(Rig.weight, Constants.ZERO, Constants.TREE * Time.deltaTime);
-            if (Rig.weight == 0) _idAttack = 0;
+            _rig.weight = Mathf.MoveTowards(_rig.weight, Constants.ZERO, Constants.TREE * Time.deltaTime);
+            if (_rig.weight == 0) _idAttack = 0;
         }
     }
 }

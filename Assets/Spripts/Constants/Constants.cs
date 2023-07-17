@@ -9,7 +9,13 @@ public class Constants
     public const int TEN = 10;
     public const int TWENTY = 20;
     
-    public const string WALK = "Walk";
+    public const float TWO_AND_A_HALF = 2.5f;
+    public const float HALF_OF_ONE = 0.5f;
+    
     public const string TAKE = "Take";
     public const string WIN = "Dance";
+    //-------------
+    public const string APPLE = "Apple";
+    public const string LEMON = "Lemon";
+    public const string STRAWBERRY = "Strawberry";
 }

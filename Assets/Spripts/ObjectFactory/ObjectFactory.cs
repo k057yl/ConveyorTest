@@ -10,8 +10,8 @@ public class ObjectFactory : MonoBehaviour
     [SerializeField] private Transform _spawnPoint;
     [SerializeField] private GameObject _uiBarPrefab;
     [SerializeField] private GameObject _cameraPrefab;
-    
-    
+
+
     private Camera _camera;
     public Camera Camera => _camera;
     private UIBarController _uiBarController;
@@ -19,6 +19,7 @@ public class ObjectFactory : MonoBehaviour
     private Conveyor _conveyor;
     public Conveyor Conveyor => _conveyor;
     private TaskGenerator _taskGenerator;
+    
     
 
     private void Awake()
@@ -46,15 +47,12 @@ public class ObjectFactory : MonoBehaviour
         while (true)
         {
             int randomIndex = Random.Range(Constants.ZERO, _fruits.Length);
+            Instantiate(_fruits[randomIndex], _spawnPoint.position, Quaternion.identity);
 
-            GameObject fruit = Instantiate(_fruits[randomIndex], _spawnPoint.position, Quaternion.identity);
-
-            float spawnInterval = Random.Range(Constants.TWO, Constants.TREE);
-            Destroy(fruit, Constants.TWENTY);
-            yield return new WaitForSeconds(spawnInterval);
+            yield return new WaitForSeconds(Constants.TWO);
         }
     }
-
+    
     private void GenerateRandomTask()
     {
         Task task = _taskGenerator.GenerateTask();
