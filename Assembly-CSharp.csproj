@@ -64,7 +64,6 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
      <Compile Include="Assets\Spripts\Task\TaskGenerator.cs" />
-     <Compile Include="Assets\Spripts\Rig\AnimationRig.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
      <Compile Include="Assets\Spripts\Fruits\AbsFruit.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
@@ -95,8 +94,8 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
-     <Compile Include="Assets\Spripts\FX\DestroySphere.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
+     <Compile Include="Assets\Spripts\Light\LightBlink.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Spripts\Constants" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -104,11 +103,11 @@
      <Folder Include="Assets\Settings" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <Folder Include="Assets\TextMesh Pro\Sprites" />
+     <Folder Include="Assets\Spripts\Light" />
      <Folder Include="Assets\PolygonApocalypse\Prefabs\Weapons\Guns" />
      <Folder Include="Assets\TextMesh Pro\Resources\Sprite Assets" />
      <Folder Include="Assets\Spripts\Fruits" />
      <Folder Include="Assets\Animations" />
-     <Folder Include="Assets\Spripts\FX" />
      <Folder Include="Assets\Low Poly Fruits\resources" />
      <Folder Include="Assets\PolygonApocalypse\Materials\Character_Mats" />
      <Folder Include="Assets\PolygonApocalypse\Prefabs\Weapons\Vehicle_Weapons" />
@@ -168,7 +167,6 @@
      <Folder Include="Assets\TutorialInfo\Scripts" />
      <Folder Include="Assets\TextMesh Pro\Fonts" />
      <Folder Include="Assets\Materials" />
-     <Folder Include="Assets\Spripts\Rig" />
      <Folder Include="Assets\TutorialInfo\Icons" />
      <Folder Include="Assets\TutorialInfo" />
      <Folder Include="Assets\PolygonApocalypse\Prefabs\Environment" />

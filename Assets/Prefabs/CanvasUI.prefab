@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 2338991645752177088}
   - component: {fileID: 951687392152563752}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: Respawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -148,10 +148,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -159,7 +159,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Respawn
 --- !u!1 &1792853149295224669
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,7 +398,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.4104433, g: 1, b: 0, a: 1}
     m_PressedColor: {r: 0.9811321, g: 0.09718761, b: 0.09718761, a: 1}
     m_SelectedColor: {r: 1, g: 0, b: 0.8351078, a: 1}
-    m_DisabledColor: {r: 1, g: 0.931602, b: 0.033018887, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 0.931602, b: 0.033018887, a: 0.09803922}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:

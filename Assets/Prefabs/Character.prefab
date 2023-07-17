@@ -501,7 +501,8 @@ MonoBehaviour:
   _basket: {fileID: 936804743340976770}
   _rig: {fileID: 1577322719720256479}
   _targetObject: {fileID: 6175537806947386575}
-  _grabRadius: 2
+  _textParticlePrefab: {fileID: 198107820186352126, guid: b369efb4abe69e044890b664115fab9e,
+    type: 3}
 --- !u!114 &7268212034035684931
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class Character : MonoBehaviour
     [SerializeField] private Basket _basket;
     [SerializeField] private Rig _rig;
     [SerializeField] private Transform _targetObject;
+    [SerializeField] private ParticleSystem _textParticlePrefab;
     
 
     private CharacterView _characterView;
@@ -23,10 +24,10 @@ public class Character : MonoBehaviour
     private bool _isRig = false;
     private float _grabRadius = Constants.ONE_AND_TWO_HUNDREDTHS;
 
+
     private void Awake()
     {
         InitializeComponents();
-        
     }
 
     public void InitializeUIBar(UIBarController uiBarController)
@@ -52,10 +53,7 @@ public class Character : MonoBehaviour
 
         if (_characterModel.IsWin)
         {
-            _uiBarController.Win();
-            _characterView.PlayWinAnimation();
-            _objectFactory.Conveyor.gameObject.SetActive(false);
-            _objectFactory.Camera.transform.position = new Vector3(Constants.HALF_OF_ONE, Constants.TWO_AND_A_HALF, Constants.TWO);
+            Win();
         }
     }
     
@@ -153,7 +151,17 @@ public class Character : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-
+        
+        Instantiate(_textParticlePrefab, textObject.transform.position, Quaternion.identity);
+        
         Destroy(textObject);
+    }
+
+    private void Win()
+    {
+        _uiBarController.Win();
+        _characterView.PlayWinAnimation();
+        _objectFactory.Conveyor.gameObject.SetActive(false);
+        _objectFactory.Camera.transform.position = new Vector3(Constants.ZERO, Constants.ONE_AND_A_HALF, Constants.TWO_AND_A_HALF);
     }
 }

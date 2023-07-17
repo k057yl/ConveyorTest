@@ -13,9 +13,9 @@ public class Conveyor : MonoBehaviour
 
     private void MoveningConveyor()
     {
-        _mat.mainTextureOffset = new Vector2(Time.time * Constants.TWO * Time.fixedDeltaTime, Constants.ZERO);
+        _mat.mainTextureOffset = new Vector2(-Time.time * Constants.TWO * Time.fixedDeltaTime, Constants.ZERO);
         Vector3 pos = _rb.position;
-        _rb.position += -Vector3.right * (_speed * Time.fixedDeltaTime);
+        _rb.position += Vector3.right * (_speed * Time.fixedDeltaTime);
         _rb.MovePosition(pos);
     }
 }
