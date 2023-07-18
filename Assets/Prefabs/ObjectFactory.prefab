@@ -55,3 +55,5 @@ MonoBehaviour:
   _spawnPoint: {fileID: 0}
   _uiBarPrefab: {fileID: 4713472425627727915, guid: 7af7604a321c18c4fb02254ad9705dc2,
     type: 3}
+  _cameraPrefab: {fileID: 5005087334029333710, guid: 5a7e746b1da90414abf42e3f43738870,
+    type: 3}

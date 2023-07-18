@@ -478,7 +478,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 7176152896564417304}
   m_Material: {fileID: 13400000, guid: 67151ece4ca7fdb438e7cbe8e153d44a, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.16737877
   m_Height: 1.7739412
   m_Direction: 1
@@ -683,9 +683,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
-    - target: {fileID: 64743844423949952, guid: df170dcae36ee024c81fa2300892e7e5,
+    - target: {fileID: 23061233136993102, guid: df170dcae36ee024c81fa2300892e7e5,
         type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23061233136993102, guid: df170dcae36ee024c81fa2300892e7e5,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23117381165859996, guid: df170dcae36ee024c81fa2300892e7e5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23117381165859996, guid: df170dcae36ee024c81fa2300892e7e5,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23457037794207574, guid: df170dcae36ee024c81fa2300892e7e5,
+        type: 3}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -981,6 +1001,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.213
+      objectReference: {fileID: 0}
+    - target: {fileID: -4571605982943762130, guid: 21ef1be3caed1934aad93a154ebfe526,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -3740023774930315418, guid: 21ef1be3caed1934aad93a154ebfe526,
         type: 3}

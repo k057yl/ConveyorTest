@@ -53,6 +53,15 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Touch"",
+                    ""type"": ""Value"",
+                    ""id"": ""3a3403d0-9dd3-4e07-863c-9c6d714dd671"",
+                    ""expectedControlType"": ""Touch"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -132,6 +141,17 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
                     ""action"": ""MouseClickRightButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ff1b3013-3b2c-4806-bf7f-ffa0585dfb47"",
+                    ""path"": ""<Touchscreen>/primaryTouch"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Touch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -143,6 +163,7 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
         m_Gameplay_Movement = m_Gameplay.FindAction("Movement", throwIfNotFound: true);
         m_Gameplay_MouseClickLeftButton = m_Gameplay.FindAction("MouseClickLeftButton", throwIfNotFound: true);
         m_Gameplay_MouseClickRightButton = m_Gameplay.FindAction("MouseClickRightButton", throwIfNotFound: true);
+        m_Gameplay_Touch = m_Gameplay.FindAction("Touch", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -207,6 +228,7 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Movement;
     private readonly InputAction m_Gameplay_MouseClickLeftButton;
     private readonly InputAction m_Gameplay_MouseClickRightButton;
+    private readonly InputAction m_Gameplay_Touch;
     public struct GameplayActions
     {
         private @NewInput m_Wrapper;
@@ -214,6 +236,7 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Gameplay_Movement;
         public InputAction @MouseClickLeftButton => m_Wrapper.m_Gameplay_MouseClickLeftButton;
         public InputAction @MouseClickRightButton => m_Wrapper.m_Gameplay_MouseClickRightButton;
+        public InputAction @Touch => m_Wrapper.m_Gameplay_Touch;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -232,6 +255,9 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
             @MouseClickRightButton.started += instance.OnMouseClickRightButton;
             @MouseClickRightButton.performed += instance.OnMouseClickRightButton;
             @MouseClickRightButton.canceled += instance.OnMouseClickRightButton;
+            @Touch.started += instance.OnTouch;
+            @Touch.performed += instance.OnTouch;
+            @Touch.canceled += instance.OnTouch;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -245,6 +271,9 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
             @MouseClickRightButton.started -= instance.OnMouseClickRightButton;
             @MouseClickRightButton.performed -= instance.OnMouseClickRightButton;
             @MouseClickRightButton.canceled -= instance.OnMouseClickRightButton;
+            @Touch.started -= instance.OnTouch;
+            @Touch.performed -= instance.OnTouch;
+            @Touch.canceled -= instance.OnTouch;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -267,5 +296,6 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnMouseClickLeftButton(InputAction.CallbackContext context);
         void OnMouseClickRightButton(InputAction.CallbackContext context);
+        void OnTouch(InputAction.CallbackContext context);
     }
 }

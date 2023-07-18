@@ -13,70 +13,27 @@ public class InputController
         _newInput.Enable();
     }
 
-    public Vector3 GetMovementInput()
+    public bool GetTouch()
     {
-        return _newInput.Gameplay.Movement.ReadValue<Vector3>();
-    }
-    
-    public bool GetMouseLeft()
-    {
-        return _newInput.Gameplay.MouseClickLeftButton.triggered;
-    }
-    
-    public bool GetMouseRight()
-    {
-        return _newInput.Gameplay.MouseClickRightButton.triggered;
-    }
-    /*
-    public float GetMouseDeltaInputX()
-    {
-        return _newInput.Gameplay.DeltaX.ReadValue<float>();
-    }
-    
-    public float GetMouseDeltaInputY()
-    {
-        return _newInput.Gameplay.DeltaY.ReadValue<float>();
+        return _newInput.Gameplay.Touch.triggered;
     }
 
-    public float GetMouseButtonMiddle()
+    public Vector2 GetTouchPosition()
     {
-        return _newInput.Gameplay.MouseClickMiddleButton.ReadValue<float>();
-    }
-    
-    
-    
-    public bool IsJumpTriggered()
-    {
-        return _newInput.Gameplay.Jump.triggered;
-    }
-
-    public bool GetReloaded()
-    {
-        return _newInput.Gameplay.Reloaded.triggered;
-    }
-    public bool IsCrouchButtonPressed()
-    {
-        bool isPressed = _newInput.Gameplay.MouseClickRihgtButton.ReadValue<float>() != 0f;
-
-        if (isPressed)
+        if (_newInput.Gameplay.Touch.triggered)
         {
-            if (!_isCrouchButtonPressed)
+            int touchCount = Input.touchCount;
+            if (touchCount > Constants.ZERO)
             {
-                _isCrouchButtonPressed = true;
-                return true;
+                Touch touch = Input.GetTouch(Constants.ZERO);
+                
+                if (touch.position.x >= Constants.ZERO && touch.position.x <= Screen.width && touch.position.y >= Constants.ZERO && touch.position.y <= Screen.height)
+                {
+                    return touch.position;
+                }
             }
         }
-        else
-        {
-            _isCrouchButtonPressed = false;
-        }
 
-        return false;
+        return Vector2.zero;
     }
-    
-    public bool GetExit()
-    {
-        return _newInput.Gameplay.Exit.triggered;
-    }
-    */
 }

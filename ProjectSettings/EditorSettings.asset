@@ -7,8 +7,10 @@ EditorSettings:
   m_SerializationMode: 2
   m_LineEndingsForNewScripts: 0
   m_DefaultBehaviorMode: 0
-  m_PrefabRegularEnvironment: {fileID: 0}
-  m_PrefabUIEnvironment: {fileID: 0}
+  m_PrefabRegularEnvironment: {fileID: 102900000, guid: 2ac8cf212df6445e8aebbe3cb832e993,
+    type: 3}
+  m_PrefabUIEnvironment: {fileID: 102900000, guid: 251716609f634449bfe8ce75c0ed78fe,
+    type: 3}
   m_SpritePackerMode: 0
   m_SpritePackerPaddingPower: 1
   m_Bc7TextureCompressor: 0
@@ -40,3 +42,5 @@ EditorSettings:
   m_CacheServerEnableUpload: 1
   m_CacheServerEnableAuth: 0
   m_CacheServerEnableTls: 0
+  m_CacheServerValidationMode: 2
+  m_CacheServerDownloadBatchSize: 128

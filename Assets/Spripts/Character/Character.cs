@@ -59,15 +59,17 @@ public class Character : MonoBehaviour
     
     private void HandleInput()
     {
-        if (_inputController.GetMouseLeft())
+        if (_inputController.GetTouch())
         {
             TryGrab();
         }
     }
- 
+    
     private void TryGrab()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Vector2 touchPosition = _inputController.GetTouchPosition();
+        Ray ray = Camera.main.ScreenPointToRay(touchPosition);
+        
         if (Physics.Raycast(ray, out RaycastHit hit) && hit.collider.CompareTag(_characterModel.CurrentName))
         {
             float distanceToPlayer = Vector3.Distance(transform.position, hit.transform.position);
@@ -77,7 +79,7 @@ public class Character : MonoBehaviour
             }
         }
     }
-    
+
     private void Grab(GameObject item)
     {
         _targetObject.position = item.transform.position;
